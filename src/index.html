@@ -1,0 +1,23 @@
+
+<div class="container">
+  <h1>todo list</h1>
+  <form id="addForm" autocomplete="off">
+    <input type="text" placeholder="新增代辦事項" name="item">
+    <button type="button" id="addBtn">+</button>
+  </form>
+  
+  <div class="wrap">
+    <form id="tagForm">
+      <label><input type="radio" name="tag" value="all" checked><span>全部</span></label>
+      <label><input type="radio" name="tag" value="done"> <span>完成</span></label>
+      <label><input type="radio" name="tag" value="undone"> <span>未完成</span></label>
+    </form>
+
+    <ul id="myul"></ul>
+
+    <div id="footer">
+      <span id="countItems"></span>
+      <button>清除所有完成項目</button>
+    </div>
+  </div>
+</div>

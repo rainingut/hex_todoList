@@ -1,0 +1,192 @@
+// #tagForm 的 label 可以加上 cursor:pointer 
+$strongcolor:#FFD370;
+$light:#fff;
+$lightgray:#EFEFEF;
+$gray:#9F9A91;
+$dark:#333;
+$gradient: linear-gradient(174deg, $strongcolor 2%, $strongcolor 46%, $light 46%, $light 100%, $lightgray 100%);
+$boxPadding: 15px 20px;
+@mixin box($b: 0){
+  background: $light;
+  box-shadow: 0 $b 15px 0 rgba(0,0,0,0.15);
+  border-radius: 10px;
+  width: 100%;
+}
+@mixin flexRow($jc:center,$ai:center){
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+}
+@mixin flexCol($jc:center,$ai:center){
+  display: flex;
+  flex-direction: column;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+*, *::after, *::before {
+  font-size: 16px;
+  box-sizing: border-box;
+  letter-spacing: .3ch;
+}
+
+button, input[type=button] {
+  @include flexRow;
+  width: 40px;height: 40px;
+  margin-right: 5px;
+  padding: 8px;
+  border: none;
+  outline:none;
+  background: transparent;
+  font-size: 32px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+body{
+  @include flexRow(center,flex-start);
+  background: $gradient;
+  min-height: 100vh;
+  font-family: NotoSansCJKtc-Regular, arial;
+}
+
+.container {
+  @include flexCol(initial,initial);
+  margin: 10px;
+  margin-top: 4vh;
+  position: relative;
+  width: 500px;
+  max-height: 100vh;
+  h1 {
+    font-family: BalooTamma2-Bold, arial;
+    font-size: 48px;
+    line-height: 82px;
+    color: $dark;
+    letter-spacing: 8.75px;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  #addForm {
+    @include box;
+    @include flexRow(space-between,center);
+    margin-bottom: 8px;
+    input[type=text] {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: $boxPadding;
+      border: none;
+      outline: none;
+      background: none;
+      &:focus {
+        outline:none;
+      }
+    }
+    button, input[type=button] {
+      color: white;
+      background: $dark;
+      padding-left: 12px;
+    }
+  }
+  .wrap {
+    @include box(5px);
+    #tagForm {
+      @include flexRow(space-around,center);
+      label {
+        display: block;
+        width: calc(100%/3);
+        cursor: pointer;
+        span {
+          padding: 20px;
+          display: block;
+          text-align: center;
+          border-bottom: 2px solid $lightgray;
+        }
+        input[type=radio]{
+          display: none;
+          &:checked{
+            &~span {
+              border-color: $dark;
+            }
+          }
+        }
+      }
+    }
+    #myul {
+      padding: $boxPadding;
+      padding-right: 0;
+      li {
+        @include flexRow(space-between,center);
+        label {
+          @include flexRow(initial,center);
+          height: 100%;
+          flex-grow: 1;
+          input[type=checkbox] {
+            position: relative;
+            width: 10px;height: 10px;
+            margin-right: 20px;
+            &::before, &::after {
+              position: absolute;
+              content: '';
+              width: 20px;height: 20px;
+              top: calc(50% - 10px);
+              left: calc(50% - 10px);
+              transition: .3s;
+            }
+            &::before {
+              border-radius: 5px;
+              border: 1px solid $dark;
+              background: $light;
+            }
+            &:checked {
+              &::before{
+                border: none;
+              }
+              &::after {
+                width: 8px; height: 15px;
+                left: calc(50% - 5px);
+                border-bottom: 2px solid $strongcolor;
+                border-right:  2px solid $strongcolor;
+                transform: rotate(45deg);
+                transform-origin:center;
+              }
+              &~span{
+                color: $gray;
+                text-decoration:line-through;
+              }
+            }
+          }
+          span{
+            flex-grow: 1;
+            margin: 5px 0;
+            padding: 15px 0;
+            height: 100%;
+            border-bottom: 2px solid $lightgray;
+          }
+        }
+        &:hover {
+          button {
+            visibility: initial;
+          }
+        }
+      }
+      button {
+        visibility: hidden;
+      }
+    }
+    #footer {
+      @include flexRow(space-between,initail);
+      padding: $boxPadding;
+      margin-bottom: 20px;
+      font-size: 14px;
+      #countItems {}
+      button {
+        width: initial;
+        height: initial;
+        font-size: 14px;
+        color: $gray;
+      }
+    }
+  }
+}

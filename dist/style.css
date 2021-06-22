@@ -1,0 +1,186 @@
+*, *::after, *::before {
+  font-size: 16px;
+  box-sizing: border-box;
+  letter-spacing: 0.3ch;
+}
+
+button, input[type=button] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+  padding: 8px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 32px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: linear-gradient(174deg, #FFD370 2%, #FFD370 46%, #fff 46%, #fff 100%, #EFEFEF 100%);
+  min-height: 100vh;
+  font-family: NotoSansCJKtc-Regular, arial;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: initial;
+  align-items: initial;
+  margin: 10px;
+  margin-top: 4vh;
+  position: relative;
+  width: 500px;
+  max-height: 100vh;
+}
+.container h1 {
+  font-family: BalooTamma2-Bold, arial;
+  font-size: 48px;
+  line-height: 82px;
+  color: #333;
+  letter-spacing: 8.75px;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+}
+.container #addForm {
+  background: #fff;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.container #addForm input[type=text] {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 15px 20px;
+  border: none;
+  outline: none;
+  background: none;
+}
+.container #addForm input[type=text]:focus {
+  outline: none;
+}
+.container #addForm button, .container #addForm input[type=button] {
+  color: white;
+  background: #333;
+  padding-left: 12px;
+}
+.container .wrap {
+  background: #fff;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  width: 100%;
+}
+.container .wrap #tagForm {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.container .wrap #tagForm label {
+  display: block;
+  width: calc(100%/3);
+  cursor: pointer;
+}
+.container .wrap #tagForm label span {
+  padding: 20px;
+  display: block;
+  text-align: center;
+  border-bottom: 2px solid #EFEFEF;
+}
+.container .wrap #tagForm label input[type=radio] {
+  display: none;
+}
+.container .wrap #tagForm label input[type=radio]:checked ~ span {
+  border-color: #333;
+}
+.container .wrap #myul {
+  padding: 15px 20px;
+  padding-right: 0;
+}
+.container .wrap #myul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .wrap #myul li label {
+  display: flex;
+  justify-content: initial;
+  align-items: center;
+  height: 100%;
+  flex-grow: 1;
+}
+.container .wrap #myul li label input[type=checkbox] {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  margin-right: 20px;
+}
+.container .wrap #myul li label input[type=checkbox]::before, .container .wrap #myul li label input[type=checkbox]::after {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  top: calc(50% - 10px);
+  left: calc(50% - 10px);
+  transition: 0.3s;
+}
+.container .wrap #myul li label input[type=checkbox]::before {
+  border-radius: 5px;
+  border: 1px solid #333;
+  background: #fff;
+}
+.container .wrap #myul li label input[type=checkbox]:checked::before {
+  border: none;
+}
+.container .wrap #myul li label input[type=checkbox]:checked::after {
+  width: 8px;
+  height: 15px;
+  left: calc(50% - 5px);
+  border-bottom: 2px solid #FFD370;
+  border-right: 2px solid #FFD370;
+  transform: rotate(45deg);
+  transform-origin: center;
+}
+.container .wrap #myul li label input[type=checkbox]:checked ~ span {
+  color: #9F9A91;
+  text-decoration: line-through;
+}
+.container .wrap #myul li label span {
+  flex-grow: 1;
+  margin: 5px 0;
+  padding: 15px 0;
+  height: 100%;
+  border-bottom: 2px solid #EFEFEF;
+}
+.container .wrap #myul li:hover button {
+  visibility: initial;
+}
+.container .wrap #myul button {
+  visibility: hidden;
+}
+.container .wrap #footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: initail;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+.container .wrap #footer button {
+  width: initial;
+  height: initial;
+  font-size: 14px;
+  color: #9F9A91;
+}
