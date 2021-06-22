@@ -6,13 +6,13 @@ const myul       = document.getElementById('myul');
 const footer     = document.getElementById('footer');
 const countItems = document.getElementById('countItems');
 
-let datas = JSON.parse(sessionStorage.getItem('todoList')) || [];
+let datas = JSON.parse(localStorage.getItem('todoList')) || [];
 let renderData = [];
 let currentTag = 'all';
 
-function sessionStorageHandler(data){
-  sessionStorage.clear();
-  sessionStorage.setItem('todoList', JSON.stringify(data));
+function localStorageHandler(data){
+  localStorage.clear();
+  localStorage.setItem('todoList', JSON.stringify(data));
 }
 
 function addItemHandler(data){
@@ -45,7 +45,7 @@ function changeItemStateHandeler(data){
 }
 
 function filterDataHandler(state){
-  sessionStorageHandler(datas);
+  localStorageHandler(datas);
   renderData = [];
   if (state === 'all') renderData = [...datas];
   else renderData = datas.filter(item=> item.state === state );
